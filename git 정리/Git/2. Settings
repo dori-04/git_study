@@ -1,0 +1,27 @@
+git bash
+git 사이트에 들어가서 설치 후 -> git --version으로 version 확인하기 
+이제 config로 git을 세팅하는 법을 알아보자. --global을 입력한다면 local 전역에 설정할 수 있다.(즉, --global은 default를 설정하는 것임)
+필수 세팅
+git config --global user.name "(본인 이름)" = 협업시 노출 이름, github과는 별개
+git config --global user.email "(본인 이메일)" = 협업시 노출 이메일, github과는 별개 (Blame 검색 ㄱㄱ)
+git config --global init.defaultBranch main = 기본 브랜치명 변경, default는 master이다. master가 slave를 떠올리게 하기 때문에 최근에는 main으로 설정하는 추세
+git config --global core.autocrlf (윈도우: true / 맥: input): 줄바꿈 호환 문제 해결, 이거 설정 안하면 .md파일 깨진다. 
+git config --global push.default current: push시 로컬과 동일한 브랜치명으로 설정 (git push –u를 사용하여 개인 지정도 가능함)
+기타 세팅
+git config (--global) --list: 현재 모든 설정값 보기
+git config (--global) -e: 에디터에서 보기(기본 값은 vi)
+git config pull.rebase (true/false) = pull 기본 전략 선택
+git config —global core.editor “code —wait”: 기본 에디터를 vscode로 수정
+#에디터 설정을 돌이키려면 git config —global –e -> [core] 에서 code -wait 부분 삭제하고 저장
+.git 폴더 만들기
+프로젝트를 진행할 최상위 폴더 우클릭 -> 추가 옵션 표시 -> git bash here -> git init로 .git 폴더 생성(git에게 관리를 맡기는 것)
+
+sourceTree
+sourceTree 설치 후 -> Bitbucket 건너뛰기, mercurial 건너뛰기 (Bitbucket도 VCS다, Mercurial은 git과 비슷한 관리 툴이다.)
+.git 폴더 만들기 -> 소스트리 열기 -> 로컬 저장소 추가 
+
+Vs code 
+블로그 참고하여 주의사항 확인하고 설치 ->  Ctrl + Shift + P를 눌러서 Select Default Profile 검색 -> git bash 선택 
+Material Icon Theme을 선택하면 가독성이 높아진다.(선택사항)
+.gitignore 생성 = 무시할 파일 선택 https://git-scm.com/docs/gitignore (명령어 모음집)
+
