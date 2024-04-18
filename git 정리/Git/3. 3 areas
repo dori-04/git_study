@@ -12,9 +12,12 @@ git status = 변경사항 확인하기
 git add = working directory -> staging area
 git commit –m “”= staging area -> reposiotry
 git commit –am“”= woking directory -> repository (tracked file만 사용 가능)
-git restore —staged (file_name) = staging area -> working directory
+git restore --staged (file_name) = staging area -> working directory
 git restore = working directory -> 수정 전 상태로
 git restore . = 모든 파일을 수정 전 상태로 되돌리기
-git restore —source=(Head or commit hash)파일명 = 파일을 특정 커밋의 상태로 되돌림, reset처럼 아예 version을 되돌리는게 아니라 해당 파일만 당시 커밋 상태로 수정하는 것이다. git입장에서는 untracked file이 나타났다고 생각함. 즉, create new untracked file
+git restore --source=(Head or commit hash)파일명 = 파일을 특정 커밋의 상태로 되돌림, reset처럼 아예 version을 되돌리는게 아니라 해당 파일만 당시 커밋 상태로 수정하는 것이다. git입장에서는 untracked file이 나타났다고 생각함. 즉, create new untracked file
 git clean = untracked file을 삭제하는 방법 -n: 삭제될 파일들 보여주기 / -i: 인터렉티브 모드 시작 / -d: 폴더 포함 / -f: 강제로 바로 지워버리기 / -x: .gitignore에 등록된 파일들도 삭제 <- 이걸 조합해서 사용할 수 있다. 보통은 –df 사용 (tracked file은 건들지 않는다)
+git reset --hard "돌아갈 커밋 해쉬" = repository -> delete
+git reset --mixed(default) "" = repository -> working directory
+git reset --soft "" = reposiotry -> staging area
 
