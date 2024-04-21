@@ -4,7 +4,7 @@ GitHub과 Android를 연결하는 방법
 2. git init: .git 폴더 생성
 3. git add .
 4. git commit -m "First Commit"
-5. git add remote origin (주소)
+5. git remote add origin (주소)
 6. git pull
 git init 
 git add remote origin (주소)
