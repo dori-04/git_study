@@ -1,0 +1,8 @@
+막힐 때
+git help: 기본 명령어
+git help –a: 모든 명령어
+git (명령어) -h: 해당 명령어의 설명과 옵션 보기
+git help (명령어): 해당 명령어의 설명과 옵션 웹사이트에서 보기
+git (명령어) --help: 해당 명령어의 설명과 옵션 웹사이트에서 보기
+https://git-scm.com/book/ko/v2 : git에서 만든 git에 관한 책(번역 잘 됨, 걍 영어공부를 해라 나태한 친구야)
+https://git-scm.com/docs : git 정보 사이트

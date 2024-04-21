@@ -1,0 +1,11 @@
+커밋하기 애매한 변화 치워두기 
+git stash: 아래 명령어로 변경사항 치워두기
+git stash pop: 원하는 시점, 브랜치에서 다시 적용
+git stash –p: 원하는 것만 stash 하기
+git stash –m “(text)”: 메시지와 함께 스태시
+git stash list: 스태시 목록 보기
+git stash apply: 치워둔 마지막 항목 적용( 끝에 번호로 항목 지정 가능 )
+git stash drop: 치워둔 마지막 항목 삭제( 끝에 번호로 항목 지정 가능 ) 
+git stash pop: pop = apply + drop
+git stash branch (브랜치명): 새 브랜치를 생성한 뒤 pop하기
+git stash clear: 치워둔 모든 항목들 비우기

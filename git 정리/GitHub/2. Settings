@@ -1,0 +1,39 @@
+기본 설정 
+가입하고 토큰 만들기: 보안을 위해 꼭 거쳐야 하는 단계이다.
+profile -> setttings -> Developer Settings -> Personal access tokens -> Generate token -> 복사해서 개인적으로 저장해두기
+토큰을 컴퓨터와 연동하기 
+windows 자격 증명 관리자 -> windows 자격증명 선택 -> git:https://github.com 자격 정보 생성 -> 사용자명(깃헙 아이디 나의 경우에는 koyoungjun), 토큰 붙여넣기
+sourcetree -> 옵션 -> 인증 -> 생성
+GitHub에 새 Repository 생성 -> (public: 모두에게 보일 수 있는 프로젝트, Private: 허용된 인원만 볼 수 있는 프로젝트)
+이후 Settings -> Collaborators -> Add people을 사용하여 팀원을 초대할 수 있다. 
+
+git remote add origin (원격 저장소 주소): 로컬의 Git 저장소에 원격 저장소로의 연결 추가
+git branch –M main: GitHub 권장 – 기본 브랜치명을 main으로
+git branch —all: 브랜치 목록 보기(원격까지)
+git remote: 원격 저장소 목록 보기
+git remote remove (origin 등 원격 이름): 연결만 삭제
+git push (원격 이름) --delete (원격의 브랜치명): 원격 브랜치를 삭제
+Download ZIP: 파일들만 다운받음, Git 관리내역 제외
+Git clone: Git 관리내역 포함 다운로드 -> 터미널이나 Git Bash에서 대상 폴더 이동 후 git clone (원격 저장소 주소)를 사용하여 원격 저장소에서 git을 불러올 수 있다.
+
+통신 
+push를 하기 전에는 항상 pull을 하여 로컬 상태를 최신으로 맞춰줘야 한다. 
+그럼 로컬에서 작업하기 전 깃헙에 올라온 최신 정보를 확인하고 가져오는 방법에 대해 알아보도록 하자.
+
+fetch vs pull
+fetch는 원격의 변경사항을 확인하는 방법이다.
+git fetch: 변경사항 불러오기
+이후 git checkout origin/main으로 변경사항을 editor에서 확인할 수 있다.
+확인한 사항이 맘에 들었으면 local/main으로 이동 후 pull로 적용한다.
+git checkout origin/(브랜치명)으로 원격의 새 브랜치를 확인할 수 있다.
+
+pull은 fetch를 포함하는 작업으로서 변경사항을 local에 적용하는 방법이다. pull에는 rebase방식과 merge방식이 있다.
+git pull --no-rebase : merge 방식으로 받아오기
+git pull --rebase: rebase 방식으로 받아오기
+오류가 나면 merge나 rebase의 해결방식 그대로 해결하고, merge의 경우에는 git add .-> git commit -> Vi / rebase의 경우에는 git add . -> git rebase —continue -> git commit -> Vi 
+
+local의 상태를 최신으로 맞췄다면 이제 코딩을 진행하고 변경사항을 원격으로 push해야 한다.
+git push –u (원격 저장소 이름, 보통은 origin) (원격 브랜치 이름)
+이후에는 git push만 해도 위에 설정한 주소로 push된다.
+sourcetree에서 로컬에 있는 브랜치를 원격에도 만들고 싶다면 push에서 체크박스에 체크한 채로 push하면 된다.
+sourcetree에서 원격에 있는 브랜치를 로컬에도 만들고 싶다면 원격의 브랜치를 우클릭 한 다음에 체크아웃을 누르자.

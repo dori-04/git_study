@@ -1,0 +1,6 @@
+차이 살펴보기
+git diff: 워킹 디렉토리의 변경사항 확인
+git diff —name-only: 파일명만 확인
+git diff —staged: 스테이지의 확인
+git diff (커밋1) (커밋2): 커밋간의 차이 확인
+git diff (브랜치1) (브랜치2): 브랜치간의 차이 확인

@@ -1,0 +1,7 @@
+log 더 자세히 알아보기
+git log –p: 각 커밋마다의 변경사항 함께 보기
+git log -(갯수): 최근 n개 커밋만 보기
+git log —stat: 통계와 함께 보기
+git log —oneline: 한 줄로 보기
+#중요# git log –S (검색어): 변경사항 내 단어 검색
+git log –grep (검색어): 커밋 메시지로 검색

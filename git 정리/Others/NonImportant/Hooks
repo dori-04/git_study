@@ -1,0 +1,3 @@
+git hooks란 git상의 이벤트마다 자동으로 실행될 스크립트를 지정하는 것 
+프로젝트 폴더 내 .git -> hooks 폴더 확인 -> 파일 끝에 .sample을 없애면 훅 실행파일이 된다. 
+hook의 대표적인 예시로 gitmoji-cli가 있다. 

@@ -1,0 +1,19 @@
+git의 Tag: 특정 시점을 키워드로 저장하고 싶을 때, 커밋에 버전 정보를 붙이고자 할 때 
+Tag의 종류: lightweight=특정 커밋을 가리키는 용도 / annotated=작성자 정보와 날짜, 메시지, GPG 서명 포함 가능
+lightweight을 알아보자
+git tag v2.0.0: 마지막 커밋에 태그 달기
+git tag: 현존하는 태그 확인
+git show v2.0.0: 원하는 태그의 내용 확인
+git tag –d v2.0.0: 태그 삭제
+git tag –a v2.0.0: 마지막 태그에 annotated 방식으로 태그하기이다. 
+git tag v2.0.0 –m ‘(메시지 입력)’ 
+원하는 커밋에 태그 달기
+git tag (태그명) (커밋 해시) -m (메시지)
+git tag –l ‘v1.*’: 필터링
+git checkout v1.2.1: 원하는 버전으로 체크아웃
+
+원격의 태그와 릴리즈
+git push (원격명) (태그명): 특정 태그 원격에 올리기
+git push —delete (원격명) (태그명): 특정 태그 원격에서 삭제
+git push —tags: 로컬의 모든 태그 원격에 올리기
+GitHub의 release: 다운로드 가능한 배포판 기능이다. -> GitHub의 Tag목록으로 들어감 -> 원하는 tag선택 후 Create release선택 -> 제목과 내용(.md형식)입력 후 Publish release

@@ -1,0 +1,39 @@
+git에서 차원 관리
+Branch(=다른 차원)을 만드는 이유 -> 프로젝트를 하나 이상의 모습으로 관리해야 할 때(배포용, 테스트서버용, 개발용), 여러 작업들이 각각 독립되어 진행될 때(협업에서 기능을 분담할 때)
+git branch (생성할 branch 이름)
+git branch: 브랜치 목록 확인
+git switch (branch name): 브랜치 바꾸기
+git switch –c (새 브랜치명): 생성과 동시에 이동하기 / **checkout 명령어가 git 2.23버전부터 switch, restore로 분리
+git branch –d (삭제할 브랜치명)
+git branch –D (강제삭제할 브랜치명): 지워질 브랜치에만 있는 내용의 커밋이 있을 경우 즉 다른 브랜치로 가져오지 않은 내용이 있는 브랜치를 지울 때 사용한다.
+git branch –m (기존 브랜치명) (새 브랜치명)
+
+브랜치를 합치는 두 방식
+merge: 두 브랜치를 한 커밋에 이어붙입니다.
+브랜치 사용내역을 남길 필요가 있을 때 적합한 방식입니다.
+git merge (branch name): 현재 브랜치에 (branch name)을 병합
+merge시에 문제 발생: 동일 부분에서 다른 수정이 있는 branch의 경우 merge시 문제가 발생한다. 이때는 문제 부분으로 직접 돌아가서 선택을 해줘야 한다. 
+해결이 어려울 경우 git merge —abort로 merge 중단 가능
+해결 후에는 git add . -> git commit 기능 사용 가능
+
+rebase: 브랜치를 다른 브랜치에 이어붙입니다.
+한 줄로 깔끔히 정리된 내역을 유지하기 원할 때 적합합니다.
+이미 팀원과 공유된 커밋들에 대해서는 사용하지 않는 것이 좋습니다.
+git rebase (branch name): (branch name)의 끝에 현재 브랜치를 rebase
+이 작업이 끝난다면 rebase한 branch는 해당 commit한 최신내용들이 모두 반영되어 있지만, (branch name)는 최신 commit이 반영되어 있지 않음 (보통 후자가 main이다)
+이때 branch를 (branch name)으로 이동한 후 git merge (rebase한 branch)를 하면 해결이 된다.
+
+merge의 두가지 방법 Fastforward vs 3-way merge
+Fastforward는 rebase이후 main의 HEAD와 rebase브랜치의 HEAD가 서로 맞지 않을 때 사용하는 방법이다. 두 브랜치가 특별한 분기점을 갖지 않고, 단순히 시점만 다를 뿐일 때 뒤쳐진 main의 HEAD를 최신으로 업데이트 해준다. 이걸 사용할 시 rebase의 branch는 삭제되기에 그 branch에서 어떤 일이 있었는지 알 수 없다.
+3-way merge: merge를 하는 모든 과정을 남기고 합병할 때 추가 커밋을 하나 만든 뒤 merge한다.
+
+다른 브랜치에서 원하는 커밋만 따오기 (=Cherry pick)
+git cherry-pick (체리의 해시): rebase나 merge방식이 아니라 그 version만 복제해서 붙이는 개념이다. 즉 cherry-pick의 대상이 되는 version과 cherry-pick한 후의 version은 내용은 같지만 별개의 version이다.
+
+다른 가지의 잔가지만 가져오기
+https://www.yalco.kr/@git-github-dive/10-3/ 참고
+git rebase --onto (도착 브랜치) (출발 브랜치) (이동할 브랜치) -> cirtus로 fast forward
+reset은 브랜치별로 이뤄지는 것이기 때문에 브랜치가 합병된 경우에는 각각 리셋시켜야 한다. 위 사이트에 들어가서 구체적인 방법을 살펴보자.
+
+다른 가지의 마디들 묶어서 가져오기
+git merge —squash (대상 브랜치): 묶은 상태의 version을 따로 만드는 것, 기존의 브랜치는 그대로 남겨둔다. 즉, 엄밀하게 따지면 merge는 아님
