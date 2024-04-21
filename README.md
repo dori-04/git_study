@@ -4,24 +4,21 @@ GitHub과 Android를 연결하는 방법
 2. git init: .git 폴더 생성
 3. git add .
 4. git commit -m "First Commit"
-5. git remote add origin (주소)
-6. git pull
-git init 
-git add remote origin (주소)
-git add . 
-git commit -m "First Commit"
-여기서 바로 git push하면 local과 remote의 내용이 아예 달라서 전달 되지 않는다.
-따라서 기존의 히스토리를 먼저 pull해야 되는데, 내 히스토리와의 분기점이 아예 없는 것을 가져오는 것이기 때문에 rebase 방식을 사용한다.
+5. git remote add origin (주소): 원격 저장소와 로컬을 연결
+6. git pull --rebase origin (branchname): rebase 방식                            
+_아니면 git pull origin (branchname) --allow-unrelated-histories: merge 방식_
+8. git push -u origin (branchname)
+------------------------------------
+**그냥 git pull을 진행하게 되면 원격에 있는 README.md파일의 커밋내용이 로컬에 없기 때문에 merge할 수 없다. (기본적으로 merge는 분기점이 있어야 성립된다.) = unrelated histories error**                             
 
-이후에 git push를 사용할 수 있다. 
-git push -u를 사용한다면 기본 연결을 지정함으로서 이후에는 git push만으로 원격으로 전달할 수 있다.
+__________________________________________________________
+이를 해결하는 3가지 방법이 있다.
+1. rebase 방식을 사용해서 원격의 HEAD에 로컬의 커밋을 이어 붙인다.
+2. 강제 merge
+3. 원격 저장소 리셋                
+  1번 방법을 이용하는게 가장 깔끔하고 안전하다.
 
-unrelated histories 해결 방법
-git pull origin (branch명) --allow-unrelated-histories
-or
-git pull --rebase origin (branch명)
-
-
+참고: https://jobc.tistory.com/177
 
 
 
