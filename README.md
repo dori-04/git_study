@@ -16,6 +16,10 @@ git commit -m "First Commit"
 이후에 git push를 사용할 수 있다. 
 git push -u를 사용한다면 기본 연결을 지정함으로서 이후에는 git push만으로 원격으로 전달할 수 있다.
 
+unrelated histories 해결 방법
+git pull origin (branch명) --allow-unrelated-histories
+or
+git pull --rebase origin (branch명)
 
 
 
